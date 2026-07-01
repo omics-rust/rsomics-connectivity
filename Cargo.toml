@@ -1,0 +1,33 @@
+[package]
+name = "rsomics-connectivity"
+version = "0.1.0"
+description = "Exact node/edge connectivity of an undirected graph — value-exact port of networkx.node_connectivity and networkx.edge_connectivity"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/omics-rust/rsomics-connectivity"
+authors = ["Zane Leong <efd@live.com>"]
+categories = ["science", "command-line-utilities"]
+keywords = ["graph", "connectivity", "max-flow", "networkx", "bioinformatics"]
+readme = "README.md"
+
+[[bin]]
+name = "rsomics-connectivity"
+path = "src/main.rs"
+
+[lib]
+name = "rsomics_connectivity"
+path = "src/lib.rs"
+doctest = false
+
+[dependencies]
+rsomics-common = "0.6"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
+
+[[bench]]
+name = "bench"
+harness = false
