@@ -15,8 +15,9 @@ impl Graph {
         let mut adj: Vec<Vec<usize>> = Vec::new();
 
         for line in input.lines() {
-            let line = line.trim();
-            if line.is_empty() || line.starts_with('#') {
+            // nx.parse_edgelist strips a '#' comment anywhere in the line before tokenising.
+            let line = line.split('#').next().unwrap_or("").trim();
+            if line.is_empty() {
                 continue;
             }
             let mut it = line.split_whitespace();

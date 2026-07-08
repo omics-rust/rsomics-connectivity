@@ -1,6 +1,6 @@
 [package]
 name = "rsomics-connectivity"
-version = "0.1.0"
+version = "0.1.1"
 description = "Exact node/edge connectivity of an undirected graph — value-exact port of networkx.node_connectivity and networkx.edge_connectivity"
 edition = "2021"
 rust-version = "1.74"

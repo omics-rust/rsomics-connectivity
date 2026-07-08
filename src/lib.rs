@@ -177,4 +177,18 @@ mod tests {
         assert_eq!(edge_connectivity_from_edge_list(e), 1);
         assert_eq!(node_connectivity_from_edge_list(e), 1);
     }
+
+    #[test]
+    fn inline_comment_matches_stripped_graph() {
+        let with_comments = "0 1\n1 2#c\n2 3\n0 #x\n# full-line\n";
+        let stripped = "0 1\n1 2\n2 3\n";
+        assert_eq!(
+            edge_connectivity_from_edge_list(with_comments),
+            edge_connectivity_from_edge_list(stripped),
+        );
+        assert_eq!(
+            node_connectivity_from_edge_list(with_comments),
+            node_connectivity_from_edge_list(stripped),
+        );
+    }
 }
